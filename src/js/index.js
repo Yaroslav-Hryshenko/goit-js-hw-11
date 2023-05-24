@@ -1,6 +1,8 @@
-
-
-
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
+import Notiflix from 'notiflix';
+import searchImages from './api.js';
+import loadMoreBtn from './load.js';
 
 const refs = {
   formEl: document.getElementById('search-form'),

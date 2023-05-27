@@ -50,22 +50,22 @@ function scroll() {
 }
 
 function onClick() {
-  if (newImage.page > 1 && newImage.page > Math.ceil(newImage.totalHits / 40)) {
-    newLoadMoreBtn.hideBtn();
-    scroll();
-    return Notiflix.Notify.warning(
-      "We're sorry, but you've reached the end of search results."
-    );
-  }
-
-  newLoadMoreBtn.disable();
-  return getRestPage().then(() => {
-    if (newImage.totalHits >= 40) {
-      newLoadMoreBtn.enable();
-    } else {
-      newLoadMoreBtn.hideBtn();
+    if (newImage.page > 1 && newImage.page > Math.ceil(newImage.totalHits / 40)) {
+        newLoadMoreBtn.hideBtn();
+        scroll();
+        return Notiflix.Notify.warning(
+            "We're sorry, but you've reached the end of search results."
+        );
     }
-  });
+
+    newLoadMoreBtn.disable();
+    return getRestPage().then(() => {
+        if (newImage.totalHits >= 40) {
+            newLoadMoreBtn.enable();
+        } else {
+            newLoadMoreBtn.hideBtn();
+        }
+    });
 }
 
 async function getRestPage() {

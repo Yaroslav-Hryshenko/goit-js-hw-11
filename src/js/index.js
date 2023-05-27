@@ -59,7 +59,13 @@ function onClick() {
   }
 
   newLoadMoreBtn.disable();
-  return getRestPage().then(() => newLoadMoreBtn.enable());
+  return getRestPage().then(() => {
+    if (newImage.totalHits >= 40) {
+      newLoadMoreBtn.enable();
+    } else {
+      newLoadMoreBtn.hideBtn();
+    }
+  });
 }
 
 async function getRestPage() {
